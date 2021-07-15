@@ -1,0 +1,29 @@
+doctype html
+html(lang="en")
+	head
+		meta(charset="UTF-8")
+		meta(http-equiv="X-UA-Compatible", content="IE=edge")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		title Cadastrar Calang
+	body
+		header
+		main
+			form(action="/cadastro" method="POST")
+				div
+					label(for="NOME") NOME: 
+					input(id="NOME_ID" type="text" name="NOME" value="NOME")
+				div
+					label(for="DATA") DATA: 
+					input(id="DATA_ID" type="text" name="DATA" value="DATA")
+				div
+					label(for="ENDERECO") ENDERECO: 
+					input(id="ENDERECO_ID" type="text" name="ENDERECO" value="ENDERECO")
+				div
+					label(for="CPF") CPF: 
+					input(id="CPF_ID" type="text" name="CPF" value="CPF")
+				div
+					label(for="RG") RG: 
+					input(id="RG_ID" type="text" name="RG" value="RG")
+				input(type="submit", value="Cadastrar")
+				
+		footer

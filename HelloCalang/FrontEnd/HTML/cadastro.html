@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cadastras Calang</title>
+</head>
+<body>
+	<header>
+		<h1>Cadastrar novo Calanguinho</h1>
+	</header>
+	<main>
+		<form action="/cadastro" method="POST">
+			<div>
+				<label for="NOME">NOME:</label> <input id="NOME_ID" name="NOME" type="text" value="Fulano">
+			</div>
+
+			<div>
+				<label for="DATA">DATA DE NASCIMENTO:</label> <input id="DATA_ID" name="text" type="date" value="12/31/2021">
+			</div>
+
+			<div>
+				<label for="ENDERECO">ENDEREÇO:</label> <input id="ENDERECO_ID" name="ENDERECO" type="text" value="Rua Padre Cicero">
+			</div>
+
+			<div>
+				<label for="CPF">CPF:</label> <input id="CPF_ID" name="CPF" type="text" value="000.000.000-00">
+			</div>
+
+			<div>
+				<label for="RG">RG:</label> <input id="RG_ID" name="RG" type="text" value="0000000000000">
+			</div>
+			<input type="submit" value="Cadastrar">
+		</form>
+	</main>
+	<footer></footer>
+</body>
+</html>
