@@ -1,0 +1,27 @@
+doctype html
+html(lang="pt-br")
+	head
+		meta(charset="UTF-8")
+		meta(http-equiv="X-UA-Compatible", content="IE=edge")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		title CadastroCalang
+	body
+		header ESPAÇO PARA CADASTRO
+		main
+			form(action="/cadastrar", method="post")
+				div
+					label(for="NOME") NOME:
+					input(name="NOME" type="text" value="Fulano")
+				div
+					label(for="DATA") DATA DE NASCIMENTO:
+					input(name="DATA" type="date" value="Fulano")
+				div
+					label(for="ENDERECO") ENDEREÇO:
+					input(name="ENDERECO" type="text" value="Rua Joaquina")
+				div
+					label(for="CPF") CPF:
+					input(name="CPF" type="text" value="Fulano")
+				div
+					label(for="RG") RG:
+					input(name="RG" type="text" value="Fulano")
+				input(type="submit", value="Cadastrar")
