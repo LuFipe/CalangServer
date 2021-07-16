@@ -4,12 +4,13 @@ html(lang="pt-br")
 		meta(charset="UTF-8")
 		meta(http-equiv="X-UA-Compatible", content="IE=edge")
 		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		link(rel="stylesheet", href="/CSS/mainStyle.css")
 		title BuscaCalang
 	body(id = "CORPO_ID")
 		header 
-			h1 ESPAÇO PARA BUSCA
+			h1 CADE o Calango
 		main(id = "MAIN_ID")
-			form(action="/busca", method="post")
+			form(id="formBusca_ID", action="/busca", method="post")
 				input(id="DADO_ID" ,type="text", name="DADO")
 				select(name="SELETOR")
 					option(value="NOME") NOME 
@@ -17,7 +18,7 @@ html(lang="pt-br")
 					option(value="ENDERECO") ENDERECO 
 					option(value="CPF") CPF 
 					option(value="RG") RG 
-				input(type="submit", value="BUSCAR")
+				input(id="submit_Bsca_ID" ,type="submit", value="BUSCAR")
 			table
 				tr
 					th ID
