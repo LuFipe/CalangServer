@@ -1,3 +1,4 @@
 expresss: diversos middleware e uma estrutura facil de se trabalhar
 pug: view engine para tratamento de paginas dinamicas
 nodemon: não precisar reiniciar o servidor sempre que houver uma alteração
+sequelize: ORM para tratar com bancos de dados SQL

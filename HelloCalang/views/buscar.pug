@@ -13,19 +13,24 @@ html(lang="pt-br")
 				input(id="DADO_ID" ,type="text", name="DADO")
 				select(name="SELETOR")
 					option(value="NOME") NOME 
-					option(value="DATA") DATA 
+					option(value="IDADE") IDADE 
 					option(value="ENDERECO") ENDERECO 
 					option(value="CPF") CPF 
 					option(value="RG") RG 
 				input(type="submit", value="BUSCAR")
 			table
 				tr
+					th ID
 					th NOME
-					th DATA
+					th IDADE
 					th ENDERECO
 					th CPF
 					th RG
 				tr 
-					th #{dado}
-					th #{seletor}
+					th #{id}
+					th #{nome}
+					th #{idade}
+					th #{endereco}
+					th #{cpf}
+					th #{rg}
 		footer

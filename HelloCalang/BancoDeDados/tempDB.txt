@@ -1,3 +1,4 @@
-CREATE TABLE calango(nome, data, endereco, cpf, rg);
-INSERT INTO calango(nome, data, endereco, cpf, rg) VALUES('Luiz', '28', 'Odilon', '05288866309', '204009125845');
+sqlite3 calangoCadastro.db
+CREATE TABLE calango(nome varchar(30), idade varchar(30), endereco varchar(30), cpf varchar(30), rg varchar(30));
+INSERT INTO calango(nome, idade, endereco, cpf, rg) VALUES('Luiz', '28', 'Odilon', '05288866309', '204009125845');
 SELECT * FROM calango;
