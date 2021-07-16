@@ -1,0 +1,3 @@
+CREATE TABLE calango(nome, data, endereco, cpf, rg);
+INSERT INTO calango(nome, data, endereco, cpf, rg) VALUES('Luiz', '28', 'Odilon', '05288866309', '204009125845');
+SELECT * FROM calango;

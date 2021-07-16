@@ -5,8 +5,27 @@ html(lang="pt-br")
 		meta(http-equiv="X-UA-Compatible", content="IE=edge")
 		meta(name="viewport", content="width=device-width, initial-scale=1.0")
 		title BuscaCalang
-	body
+	body(id = "CORPO_ID")
 		header 
 			h1 ESPAÇO PARA BUSCA
-		section
+		main(id = "MAIN_ID")
+			form(action="/busca", method="post")
+				input(id="DADO_ID" ,type="text", name="DADO")
+				select(name="SELETOR")
+					option(value="NOME") NOME 
+					option(value="DATA") DATA 
+					option(value="ENDERECO") ENDERECO 
+					option(value="CPF") CPF 
+					option(value="RG") RG 
+				input(type="submit", value="BUSCAR")
+			table
+				tr
+					th NOME
+					th DATA
+					th ENDERECO
+					th CPF
+					th RG
+				tr 
+					th #{dado}
+					th #{seletor}
 		footer
