@@ -28,11 +28,7 @@ router.get('/cadastro',
 router.post('/cadastro', bancoDados.CadastrarDB);
 
 //Get pagina buscar.html
-router.get('/busca', 
-	(req,res,next)=>{
-		res.render('buscar');
-	}
-);
+router.get('/busca', bancoDados.FullTabela);
 //Post pagina buscar.pug
 router.post('/busca', bancoDados.BuscarDB);
 

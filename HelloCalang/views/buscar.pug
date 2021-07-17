@@ -19,9 +19,9 @@ html(lang="pt-br")
 					option(value="CPF") CPF 
 					option(value="RG") RG 
 				input(id="submit_Bsca_ID" ,type="submit", value="BUSCAR")
-			if dado
+			if dados
 				table
-					if dado != ""
+					if dados != ""
 						tr
 							th ID
 							th NOME
@@ -29,7 +29,7 @@ html(lang="pt-br")
 							th ENDERECO
 							th CPF
 							th RG
-						each elem,i in dado
+						each elem,i in dados
 							tr 
 								th #{elem.id}
 								th #{elem.nome}
