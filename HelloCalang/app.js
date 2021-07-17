@@ -21,7 +21,11 @@ app.use(express.static('FrontEnd'))
 
 //Criação das Rotas
 var roteador = require('./routes/roteador');
-
 app.use('/',roteador);
+app.use(
+	(req,res)=>{
+		res.redirect('/')
+	}
+)
 
 module.exports = app;
