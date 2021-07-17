@@ -19,19 +19,25 @@ html(lang="pt-br")
 					option(value="CPF") CPF 
 					option(value="RG") RG 
 				input(id="submit_Bsca_ID" ,type="submit", value="BUSCAR")
-			table
-				tr
-					th ID
-					th NOME
-					th IDADE
-					th ENDERECO
-					th CPF
-					th RG
-				tr 
-					th #{id}
-					th #{nome}
-					th #{idade}
-					th #{endereco}
-					th #{cpf}
-					th #{rg}
+			if dado
+				table
+					if dado != ""
+						tr
+							th ID
+							th NOME
+							th IDADE
+							th ENDERECO
+							th CPF
+							th RG
+						each elem,i in dado
+							tr 
+								th #{elem.id}
+								th #{elem.nome}
+								th #{elem.idade}
+								th #{elem.endereco}
+								th #{elem.cpf}
+								th #{elem.rg}
+					else 
+						p Cadastro não encontrado
+			else 
 		footer

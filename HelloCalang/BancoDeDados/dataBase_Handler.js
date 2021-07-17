@@ -49,51 +49,35 @@ module.exports.BuscarDB = async(req, res, next)=>{
 			const buscar = await calango.findAll({
 				where:{	nome : req.body.DADO }
 			})
-			dado = buscar[0];
-			console.log("Os dados brutos são: \n\n")
-			var dadoBruto =JSON.stringify(buscar)
-			console.log(dadoBruto)
-			console.log("\nO tamanho total dos dados brutos são: "+dadoBruto.length)
-			console.log("\n")
-			dadoBruto = JSON.parse(dadoBruto)
-			console.log("Dados brutos em forma de objeto: "+ dadoBruto)
-			console.log("Tamanho dos dados brutos em forma de objeto: "+ dadoBruto.length)
+			dado = buscar;
 		}
 
 		else if(req.body.SELETOR == 'IDADE'){
 			const buscar = await calango.findAll({
 				where:{	idade : req.body.DADO }
 			})
-			dado = buscar[0];
-			console.log("Os dados brutos são: \n\n")
-			var dadoBruto =JSON.stringify(buscar)
-			console.log(dadoBruto)
-			console.log("\nO tamanho total dos dados brutos são: "+dadoBruto.length)
-			console.log("\n")
-			dadoBruto = JSON.parse(dadoBruto)
-			console.log("Dados brutos em forma de objeto: "+ dadoBruto)
-			console.log("Tamanho dos dados brutos em forma de objeto: "+ dadoBruto.length)
+			dado = buscar;
 		}
 		
 		else if(req.body.SELETOR == 'ENDERECO'){
 			const buscar = await calango.findAll({
 				where:{	endereco : req.body.DADO }
 			})
-			dado = buscar[0];
+			dado = buscar;
 		}
 		
 		else if(req.body.SELETOR == 'CPF'){
 			const buscar = await calango.findAll({
 				where:{	cpf : req.body.DADO	}
 			})
-			dado = buscar[0];
+			dado = buscar;
 		}
 		
 		else if(req.body.SELETOR == 'RG'){
 			const buscar = await calango.findAll({
 				where:{	rg : req.body.DADO }
 			})
-			dado = buscar[0];
+			dado = buscar;
 
 		}
 		
@@ -104,8 +88,8 @@ module.exports.BuscarDB = async(req, res, next)=>{
 		dado = JSON.stringify(dado)
 		console.log("\n\nOs dados cadastrados foram:\n"+dado+"\n\n")
 		dado = JSON.parse(dado)
-		
-		res.render('buscar', dado)
+		console.log("Dados estao do tipo: "+typeof dado)
+		res.render('buscar', {'dado': dado})
 	}
 	catch(error){
 		console.log(error)
