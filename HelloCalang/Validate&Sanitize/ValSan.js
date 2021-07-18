@@ -75,7 +75,7 @@ module.exports.ValidateCpfRG = (DOC)=>{
 	if(!((10 <= DOC.length)&&(DOC.length <= 14))){
 		validacao.status = false;
 		validacao.mensage = "Verifique se digitou todos os numeros e não colocou nenhuma pontuação";
-		return validacao;
+		return validacao.status;
 	}
 
 	for(var i=0; i<DOC.length;i++){
@@ -85,8 +85,8 @@ module.exports.ValidateCpfRG = (DOC)=>{
 
 			validacao.status = false
 			validacao.mensage = "Apenas numeros inteiros são aceitas";
-			return validacao;
+			return validacao.status;
 		}
 	}
-	return validacao;	
+	return validacao.status;	
 }

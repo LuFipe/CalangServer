@@ -45,14 +45,13 @@ module.exports.CadastrarDB = async(req,res,next)=>{
 			},
 
 	}
-	var testCPF;
-	var testRG;	
-	
+	var testCPF = {};
+	var testRG = {};	
 	//Tentando syncronizar o banco de dados
 	try{
 		//Syncronizando o banco de dados
 		const CRUDBanco = await dataBase.sync();
-		console.log(CRUDBanco);
+		//console.log(CRUDBanco);
 		
 		
 		//Testando existencia de RG ou CPF ja Cdastrados
@@ -60,47 +59,67 @@ module.exports.CadastrarDB = async(req,res,next)=>{
 			where:{ cpf: req.body.CPF}
 		})
 		testCPF = JSON.stringify(existeCPF[0]);
-		testCPF = JSON.parse(testCPF);
+		if(testCPF != null) {
+			testCPF = JSON.parse(testCPF);
+			console.log("\n\nValor de validado.cpf.existente: "+ validado.cpf.existente)
+			if(req.body.CPF == testCPF.cpf) validado.cpf.existente = true;
+			console.log("\n\nValor de validado.cpf.existente: "+ validado.cpf.existente)
+			console.log("\nValor da expressao req.body.CPF == testCPF.cpf: "+(req.body.CPF == testCPF.cpf))
+		}
 		
 		const existeRG = await calango.findAll({
 			where:{	rg: req.body.RG	}
 		})
 		testRG = JSON.stringify(existeRG[0]);
-		testRG = JSON.parse(testRG);
-
-		if(req.body.RG == testRG.rg) validado.rg.existente = true;
-		if(req.body.CPF == testCPF.cpf) validado.cpf.existente = true;
-
-
+		if(testRG != null){
+			testRG = JSON.parse(testRG);
+			console.log("\n\nValor de validado.rg.existente: "+validado.rg.existente)
+			if(req.body.RG == testRG.rg) validado.rg.existente = true;
+			console.log("\n\nValor de validado.rg.existente: "+validado.rg.existente)
+			console.log("\nValor da expressao req.body.RG == testRG.rg: "+(req.body.RG == testRG.rg))
+		}
+		
+		
+		
 		//Verificando a validade dos dados cadastrados
 		validado.nome = validador.ValidateName(req.body.NOME);
 		validado.idade = validador.ValidateIdade(req.body.IDADE);
 		validado.endereco = validador.ValidateName(req.body.ENDERECO);
-		validado.cpf = validador.ValidateCpfRG(req.body.CPF);
-		validado.rg = validador.ValidateCpfRG(req.body.RG)
-
-		if(!(validado.nome.status && validado.idade.status && validado.endereco.status && validado.cpf.status && validado.rg.status)&& !validado.rg.existente && !validado.cpf.existente){
+		validado.cpf.status = validador.ValidateCpfRG(req.body.CPF);
+		validado.rg.status = validador.ValidateCpfRG(req.body.RG)
+		
+		if(!(validado.nome.status && validado.idade.status && validado.endereco.status && validado.cpf.status && validado.rg.status) || validado.rg.existente || validado.cpf.existente){
+			
+			console.log("\n\nChegou aqui\n\n")
+			console.log(`Nome: ${validado.nome.status}\nIdade: ${validado.idade.status}\nEndereco: ${validado.endereco.status}\nCPF: ${validado.cpf.status}\nRG: ${validado.rg.status}\nCPFExistnte: ${validado.cpf.existente}\nRGExistente: ${validado.rg.existente}`)
 
 			if(validado.nome.status) dados.nome = validador.Capitalizar(req.body.NOME);
-			else dados.nome = validado.nome.mensagem;
+			else dados.nome = validado.nome.mensage;
 
 			if(validado.idade.status) dados.idade = req.body.IDADE;
-			else dados.idade = validado.idade.mensagem;
+			else dados.idade = validado.idade.mensage;
 
 			if(validado.endereco.status) dados.endereco = validador.Capitalizar(req.body.ENDERECO);
-			else dados.endereco = validado.endereco.mensagem;
+			else dados.endereco = validado.endereco.mensage;
 
-			if(validado.cpf.status) dados.cpf = req.body.CPF;
-			else dados.cpf = validado.cpf.mensagem;
+			if(validado.cpf.existente){
+				dados.cpf = "CPF ja existe";
+			}
+			else if(validado.cpf.status){
+				dados.cpf = req.body.CPF;
+			}
+			else dados.cpf = "Apenas numeros e entre 10 a 14 digitos";
 
-			if(validado.cpf.existente) dados.cpf = "CPF ja existe"
-			else dados.cpf = req.body.CPF
 
-			if(validado.rg.status) dados.rg = req.body.RG;
-			else dados.rg = validado.rg.mensagem;
+			if(validado.rg.existente){
+				dados.rg = "RG ja existe";
+			}
+			else if(validado.rg.status){
+				dados.rg = req.body.RG;
+			}
+			else dados.rg = "Apenas numeros e entre 10 a 14 digitos";
+			
 
-			if(validado.rg.existente) dados.rg = "RG ja existe"
-			else dados.rg = req.body.RG
 
 			res.render('cadastrar',dados)
 
