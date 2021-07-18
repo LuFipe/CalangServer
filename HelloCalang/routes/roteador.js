@@ -35,9 +35,9 @@ router.post('/busca', bancoDados.BuscarDB);
 //Get pagina excluir.html
 router.get('/excluir', 
 	(req,res,next)=>{
-		res.render('buscar');
+		res.render('excluir');
 	}
 );
-
-
+router.post('/excluir',bancoDados.BuscarRG)
+router.post('/confirmar_exclusao', bancoDados.DeletarCadastro)
 module.exports = router;

@@ -115,3 +115,44 @@ module.exports.BuscarDB = async(req, res, next)=>{
 	}
 	
 }
+
+module.exports.DeletarCadastro = async(req, res, next)=>{
+	var dados;
+
+	try{
+		//Syncronizar banco de dados
+		const CRUDBanco = await dataBase.sync();
+		console.log(CRUDBanco);
+
+		//Achar cadastro
+		const adeus = await calango.destroy({
+			where:{ cpf: req.body.CPF }
+		})
+		console.log("\n\nDELETADO\n\n");
+		console.log(JSON.stringify(adeus));
+	}
+	catch(error){
+		console.log(error)
+	}
+	res.render('index');
+}
+
+module.exports.BuscarRG = async(req, res, next)=>{
+	var dados;
+
+	try{
+		const CRUDBanco = await dataBase.sync();
+		console.log(CRUDBanco);
+
+		//Display cadastro recem criado
+		const display = await calango.findAll({
+			where:{ cpf : req.body.CPF 	}
+		})
+		dados = JSON.stringify(display);
+		dados = JSON.parse(dados);		
+	}
+	catch(error){
+		console.log(error)
+	}
+	res.render('excluir', {'dados': dados})
+}

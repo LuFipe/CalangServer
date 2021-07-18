@@ -10,4 +10,35 @@ html(lang="pt-br")
 		header 
 			h1 INSTALA VISTA Calango (você quem escolheu)
 		main
+			if dados
+				if dados != ""
+					p TEM CERTEZA QUE DESEJA DELETAR O CALANGO ABAIXO?
+					each elem,i in dados
+						form(action="/confirmar_exclusao", method="post")
+							input(type="text", name="CPF", value= elem.cpf )
+							input(type="submit", value="DELETAR")
+						table
+							tr
+								th ID
+								th NOME
+								th IDADE
+								th ENDERECO
+								th CPF
+								th RG
+							tr 
+								th #{elem.id}
+								th #{elem.nome}
+								th #{elem.idade}
+								th #{elem.endereco}
+								th #{elem.cpf}
+								th #{elem.rg}
+				else 
+					p WHAT IS DELETED, MAY NEVER BE DELETED
+				
+			else
+				form(action="/excluir", method="post")
+					div
+						label(for="CPF") CPF DO CADASTRO A SER DELETADO: 
+						input(type="text", name="CPF")
+					input(type="submit", value="DELETAR")
 		footer
