@@ -7,7 +7,6 @@ const calango = dataBase.define('calango',
 			type: Sequelize.INTEGER,
 			autoIncrement: true,
 			allowNull: false,
-			primaryKey: true
 		},
 		nome:{
 			type: Sequelize.STRING,
@@ -23,11 +22,14 @@ const calango = dataBase.define('calango',
 		},
 		cpf:{
 			type: Sequelize.STRING,
-			allowNull: false
+			allowNull: false,
+			primaryKey: true,
+			unique: true
 		},
 		rg:{
 			type: Sequelize.STRING,
-			allowNull: false
+			allowNull: false,
+			unitque: true
 		}
 	}
 )
