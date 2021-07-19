@@ -4,6 +4,7 @@
 //		CHAMADO POR WWW				//
 //									//
 var express = require('express');
+var path = require('path');
 
 //Usado pelo WWW 
 var app = express();
@@ -24,7 +25,7 @@ var roteador = require('./routes/roteador');
 app.use('/',roteador);
 app.use(
 	(req,res)=>{
-		res.redirect('/')
+		res.sendFile(path.join(__dirname+'/FrontEnd/HTML/ullnotp.html'))
 	}
 )
 

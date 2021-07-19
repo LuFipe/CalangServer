@@ -8,6 +8,7 @@ html(lang="pt-br")
 		title Excluir
 	body
 		header 
+			a(class="goBack_CLASS" href="/") &#128281
 			h1 INSTALA VISTA Calango (você quem escolheu)
 		main
 			if dados
@@ -16,7 +17,7 @@ html(lang="pt-br")
 					each elem,i in dados
 						form(action="/confirmar_exclusao", method="post")
 							input(type="text", name="CPF", value= elem.cpf )
-							input(type="submit", value="DELETAR")
+							input(class="submitBtn_CLASS" ,type="submit", value="DELETAR")
 						table
 							tr
 								th ID
@@ -40,5 +41,5 @@ html(lang="pt-br")
 					div
 						label(for="CPF") CPF DO CADASTRO A SER DELETADO: 
 						input(type="text", name="CPF")
-					input(type="submit", value="DELETAR")
+					input(class="submitBtn_CLASS" ,type="submit", value="DELETAR")
 		footer

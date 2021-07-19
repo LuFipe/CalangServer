@@ -86,26 +86,41 @@ tr{
 	background-color: rgba(235,235,235, 1);
 	width: 100%;
 	height: 1.5em;
-
 	border-style: solid;
 	border: 5em;
 }
 
+tr:nth-child(odd){
+	background-color: white;
+}
+
 th{
 	display: flex;
-	background-color: rgba(235,235,235, 1);
-	width: 20%;
-	height: 1.5em;
+	width: 10em;
+	height: auto;
 	text-align: left;
-	border-style: solid;
-	border: 5em;
+	border: .1em solid black;
 
 }
 /*							*/
 /*			CLASSES			*/
 /*							*/
 
+.goBack_CLASS{
+	padding: 0;
+	margin: .1em .1em .1em .5em;
+	height: 1em;
+	width: 1em;
+	font-size: 5em;
+	box-shadow: 0 0	0;
+}
 
+.submitBtn_CLASS{
+	width: 100%;
+	text-align: center;
+	height: 2.5em;
+	font-size: 1em;
+}
 
 /*							*/
 /*			  ID's			*/
@@ -113,6 +128,7 @@ th{
 
 form#formBusca_ID{
 	display: flex;
+	margin-left: 25%;
 
 }
 
@@ -127,4 +143,18 @@ input#submit_Bsca_ID{
 	border-style: solid;
 	border-radius: .3em;
 	box-shadow: green .2em .2em .1em;
+}
+
+body#ullnotp_BODY_ID{
+	background-image: url("../Images/Fussmatte_Gandalf_01.jpg");
+	background-repeat: no-repeat;
+	background-size: 100% 500%;
+}
+
+div#gandalf_ID{
+	position: fixed;
+	z-index: -1;
+	max-width: 100%;
+	max-height: 100%;
+	padding-left: 15%;
 }

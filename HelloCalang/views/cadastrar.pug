@@ -8,6 +8,7 @@ html(lang="en")
 		title Cadastrar Calang
 	body
 		header 
+			a(class="goBack_CLASS" href="/") &#128281
 			h1 NOVO Calango
 		main
 			form(action="/cadastro" method="POST")
@@ -26,6 +27,6 @@ html(lang="en")
 				div
 					label(for="RG") RG: 
 					input(id="RG_ID" type="text" name="RG" value=rg)
-				input(type="submit", value="Cadastrar")
+				input(class="submitBtn_CLASS" ,type="submit", value="Cadastrar")
 				
 		footer
