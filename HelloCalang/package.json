@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node ./bin/www",
     "devstart": "nodemon .bin/www",
-    "serverstart": "DEBUG=Hello_Calang: * npm run devstart"
+    "serverstart": "DEBUG=HelloCalang:* npm run devstart"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
